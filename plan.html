@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Full Plan: Columbus Outdoor Power</title>
+<meta name="description" content="The complete build plan for Columbus Outdoor Power, phase by phase: what we'd build, why it matters, and the order to do it in.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jacogilliam-ai.github.io/columbus-outdoor-power-review/plan.html">
+<meta property="og:title" content="The Full Plan: Columbus Outdoor Power">
+<meta property="og:description" content="Every piece we'd build, phase by phase, and why each one matters.">
+<meta property="og:image" content="https://jacogilliam-ai.github.io/columbus-outdoor-power-review/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f2ec; --panel:#fffdfa; --ink:#1e1b17; --soft:#4d473e; --muted:#8a8073;
+    --line:#e6ded2; --line2:#d5cabb;
+    --orange:#e0651c; --orange-ink:#b44f10; --orange-deep:#933f0b; --wash:#fbe9dc;
+    --good:#2c7a4c; --good-w:#e2f0e6; --good-l:#bad8c4;
+    --ink-panel:#211d18;
+    --maxw:920px;
+    --shadow:0 1px 2px rgba(30,27,23,.04), 0 10px 30px rgba(30,27,23,.06);
+    --shadow-lg:0 2px 6px rgba(30,27,23,.05), 0 24px 60px rgba(30,27,23,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Figtree",-apple-system,system-ui,Segoe UI,Roboto,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:"Archivo",sans-serif;margin:0;line-height:1.1;text-wrap:balance;letter-spacing:-.02em;}
+  p{margin:0;}
+  a{color:var(--orange-ink);text-decoration:none;}
+  b,strong{font-weight:700;}
+
+  #bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--orange);z-index:50;transition:width .1s linear;}
+  .topbar{position:fixed;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 20px;background:rgba(246,242,236,.82);backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line);z-index:40;}
+  .topbar .bn{font-family:"Archivo";font-weight:800;font-size:14px;}
+  .topbar .bn span{color:var(--orange-ink);}
+  .topbar a.back{font-size:13px;color:var(--soft);font-weight:600;}
+  .topbar a.back:hover{color:var(--orange-ink);}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  header.hero{padding:104px 0 34px;position:relative;overflow:hidden;}
+  header.hero::before{content:"";position:absolute;inset:0;z-index:0;
+    background:radial-gradient(120% 80% at 90% -10%, rgba(224,101,28,.13), transparent 60%),
+      repeating-linear-gradient(135deg, rgba(30,27,23,.018) 0 2px, transparent 2px 26px);}
+  header.hero .wrap{position:relative;z-index:1;}
+  .kick{display:inline-flex;align-items:center;gap:9px;font-family:"Archivo";font-weight:700;font-size:12.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--orange-ink);}
+  .kick::before{content:"";width:26px;height:2px;background:var(--orange);}
+  h1{font-size:clamp(34px,6.4vw,58px);font-weight:900;margin:16px 0 0;letter-spacing:-.03em;}
+  h1 .o{color:var(--orange);}
+  .hero p.sub{font-size:18px;color:var(--soft);max-width:60ch;margin:18px 0 0;}
+
+  .note{background:var(--ink-panel);color:#e7dfd3;border-radius:16px;padding:22px 26px;margin-top:26px;
+    box-shadow:var(--shadow-lg);position:relative;overflow:hidden;font-size:16px;}
+  .note::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--orange);}
+  .note b{color:#fff;}
+
+  /* phase */
+  .phase{margin-top:40px;}
+  .phase-head{display:flex;align-items:center;gap:14px;margin-bottom:6px;}
+  .badge{flex:none;width:52px;height:52px;border-radius:13px;background:var(--orange);color:#fff;
+    font-family:"Archivo";font-weight:900;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    line-height:1;box-shadow:var(--shadow);}
+  .badge .p{font-size:8px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:2px;}
+  .badge .num{font-size:22px;}
+  .phase-head h2{font-size:clamp(22px,3.6vw,30px);font-weight:800;}
+  .phase-intro{color:var(--soft);font-size:16px;margin:0 0 18px 66px;}
+  @media(max-width:600px){.phase-intro{margin-left:0;}}
+
+  .items{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;}
+  .item{display:grid;grid-template-columns:auto 1fr;gap:0 14px;padding:15px 20px;border-top:1px solid var(--line);}
+  .item:first-child{border-top:none;}
+  .item .tick{width:22px;height:22px;border-radius:6px;background:var(--wash);color:var(--orange-deep);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;margin-top:2px;flex:none;}
+  .item .b h4{font-size:16.5px;font-weight:700;font-family:"Figtree";letter-spacing:-.01em;}
+  .item .b p{color:var(--soft);font-size:15px;margin-top:3px;}
+  .tag{display:inline-block;font-family:"Archivo";font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+    padding:2px 7px;border-radius:20px;background:var(--good-w);color:var(--good);border:1px solid var(--good-l);margin-left:8px;vertical-align:middle;}
+
+  .close{background:var(--ink-panel);color:#f2ece3;border-radius:18px;padding:32px 30px;margin-top:44px;
+    box-shadow:var(--shadow-lg);position:relative;overflow:hidden;}
+  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 120% at 100% 0,rgba(224,101,28,.2),transparent 55%);}
+  .close .inr{position:relative;z-index:1;}
+  .close h2{color:#fff;font-size:clamp(22px,3.4vw,30px);font-weight:900;margin-bottom:12px;}
+  .close p{color:#e6ded2;font-size:17px;margin-bottom:12px;max-width:60ch;}
+  .btn{display:inline-block;margin-top:6px;background:var(--orange);color:#fff;font-weight:700;font-family:"Figtree";
+    padding:12px 22px;border-radius:10px;font-size:15px;}
+  .btn:hover{background:var(--orange-deep);color:#fff;}
+
+  footer{padding:30px 0 60px;color:var(--muted);font-size:13px;text-align:center;}
+  footer a{color:var(--muted);text-decoration:underline;}
+
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rv.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.rv{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+<div id="bar"></div>
+<div class="topbar">
+  <div class="bn">Columbus Outdoor Power <span>· The Full Plan</span></div>
+  <a class="back" href="index.html">&larr; Back to the review</a>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kick">The Full Plan</span>
+    <h1>Everything we'd build,<br>and <span class="o">why</span>.</h1>
+    <p class="sub">The review page covered what's happening now. This is the whole map: every piece worth building, what each one does for you, and the order I'd do it in.</p>
+    <div class="note rv">
+      <p>You do <b>not</b> have to do all of this at once, and you shouldn't. This is the full picture so you can see where it's headed. We'd start with Phase 1 and move at whatever pace and budget make sense for you. Skim the headers, dig into whatever you want.</p>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <div class="phase-head rv">
+      <div class="badge"><span class="p">Phase</span><span class="num">1</span></div>
+      <h2>Foundation &amp; quick wins</h2>
+    </div>
+    <p class="phase-intro rv">Stop the leaks and get measurement in place, so nothing's slipping and we can prove what's working from here on.</p>
+    <div class="items rv">
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Fix the urgent bugs</h4><p>The footer phone link, the logo link, and the invisible form text. The things costing you calls right now.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Turn on tracking</h4><p>Google Analytics, Search Console, and conversion tracking on forms, calls, and purchases. So every decision after this is based on real numbers, not guesses.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Write your Google listings</h4><p>Real headline and summary text on every page, so Google shows what you want, not scraps it picked itself.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Set a proper share image</h4><p>So a shared link shows your shop, not a blank map pin.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Optimize your Google Business Profile</h4><p>The map listing that drives the most calls. Categories, hours, photos, services, and products all filled in.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Fix the reviews</h4><p>Replace the "Grass Luvers" quotes with real ones, and start asking every happy customer for a review.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Map the redirects</h4><p>Match every old page address to its new one before we move platforms, so you keep whatever search standing you've built.</p></div></div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <div class="phase-head rv">
+      <div class="badge"><span class="p">Phase</span><span class="num">2</span></div>
+      <h2>The new store on Shopify</h2>
+    </div>
+    <p class="phase-intro rv">Rebuild on Shopify with a custom, hand-coded theme, so it's fast, it's yours, and you can run it yourself without a developer.</p>
+    <div class="items rv">
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Custom-coded theme</h4><p>Built to match your brand and coded properly, not thrown together in a drag-and-drop builder that bogs the site down.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Your full catalog online</h4><p>The mowers, plus everything you actually move: oils, filters, blades, belts, trimmer line, parts, and every brand you carry.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Real categories, filters, and search</h4><p>So a customer (and Google) can actually find the specific thing they came for.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Pickup or ship at checkout</h4><p>Small items get a buy button with both options. Big equipment stays shown-online, sold-in-person, no card fees on a $14,000 machine.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Real photos and specs on every item</h4><p>Plus product reviews turned on. Real photos sell better and cut returns.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Tax, shipping, and policies set up</h4><p>Indiana sales tax, shipping rates, and your warranty, returns, shipping, and privacy pages, all handled correctly.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Move your eBay listings over</h4><p>Bring them onto your own store where the fees are far lower, and point your eBay buyers to your site.</p></div></div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <div class="phase-head rv">
+      <div class="badge"><span class="p">Phase</span><span class="num">3</span></div>
+      <h2>Getting found</h2>
+    </div>
+    <p class="phase-intro rv">Make sure the people searching for what you sell and fix land on you, not the big box stores.</p>
+    <div class="items rv">
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>A page for every brand</h4><p>Husqvarna, Scag, Echo, Hustler. People search by brand, and right now you show up for almost none of them.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>A page for every service</h4><p>Sales, repair, blade sharpening, pickup and delivery. Each one can rank on its own for searches the big stores can't touch.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Local pages for the towns you serve</h4><p>Columbus, Seymour, North Vernon, and the rest, so you turn up in "near me" searches across the area.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Structured data for star ratings</h4><p>The behind-the-scenes code that lets Google show your 4.3 stars and other rich details next to your name.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Manufacturer dealer listings</h4><p>Get listed in the "find a dealer" tools on Scag, Husqvarna, and Echo's sites. Free traffic and a link Google trusts.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Directory and map listings</h4><p>Apple Maps, Bing, Yelp, Facebook, all with matching name, address, and phone so Google trusts you more.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>A review engine</h4><p>A simple routine to ask every customer, reply to all of them, and keep fresh reviews coming. Recent reviews push you up.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Real photography across the site</h4><p>Swap any stock or AI images for real shots of your shop, team, and equipment. Better trust, better ranking signals.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Seasonal how-to posts</h4><p>"When to sharpen your blades," "winterizing your mower." The exact things people search that pull them to your site.</p></div></div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase">
+    <div class="phase-head rv">
+      <div class="badge"><span class="p">Phase</span><span class="num">4</span></div>
+      <h2>Repeat business &amp; reach</h2>
+    </div>
+    <p class="phase-intro rv">Turn one-time buyers into regulars, and get in front of new people. This is where a fixed site becomes a growing one.</p>
+    <div class="items rv">
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Email capture and a welcome note <span class="tag">Repeat revenue</span></h4><p>With a proper opt-in, so you can actually reach these people later, legally.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Service-reminder emails <span class="tag">Repeat revenue</span></h4><p>Automatic "time to winterize" and "spring tune-up" reminders. Repeat business on autopilot, and one of the biggest wins for an equipment shop.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Seasonal sales and cart reminders</h4><p>Simple campaigns for your busy seasons, plus a nudge to anyone who left something in their cart.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Financing shown on big equipment</h4><p>Many buyers say yes to a $10,000 machine when they see a monthly number. Showing it upfront closes more sales.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>A "text us" option</h4><p>Let people text a quick question. Local shops convert really well on text, and most customers prefer it to calling.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Active Facebook and Instagram</h4><p>New arrivals, before-and-after repairs, seasonal tips. Keeps you top of mind and feeds people back to the site.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>YouTube how-to and demo videos</h4><p>Short videos on starting, maintaining, and choosing equipment. They rank in Google too, so they pull in new people.</p></div></div>
+      <div class="item"><div class="tick">&#10003;</div><div class="b"><h4>Paid ads, when you're ready <span class="tag">Optional</span></h4><p>Google Local Services and retargeting for high-intent local searches. Only once the foundation is earning, not before.</p></div></div>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="close rv">
+    <div class="inr">
+      <h2>That's the whole map.</h2>
+      <p>It's a lot on one page, but it's not a lot at once. We'd start with Phase 1, get the quick wins and the store live, and build the rest at the pace that fits your budget. You'd own all of it, and you'd be able to run it yourself.</p>
+      <p>Want to talk through where to start? Head back to the review and the details are there, or just give me a call.</p>
+      <a class="btn" href="index.html">&larr; Back to the review</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Prepared by Jacob Gilliam &nbsp;·&nbsp; <a href="index.html">Back to the review</a>
+</footer>
+
+<script>
+  var bar=document.getElementById('bar');
+  function onScroll(){var h=document.documentElement,b=document.body;var st=h.scrollTop||b.scrollTop;
+    var sh=(h.scrollHeight||b.scrollHeight)-h.clientHeight;bar.style.width=(sh>0?(st/sh*100):0)+'%';}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var rvs=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    rvs.forEach(function(el){io.observe(el);});
+  } else { rvs.forEach(function(el){el.classList.add('in');}); }
+</script>
+</body>
+</html>
