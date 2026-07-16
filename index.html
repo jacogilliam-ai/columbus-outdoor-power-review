@@ -103,6 +103,10 @@
   .sc .v{display:flex;align-items:center;gap:7px;margin-top:8px;font-weight:700;font-size:16px;font-family:"Archivo";}
   .dot{width:9px;height:9px;border-radius:50%;flex:none;}
   .d-c{background:var(--crit)}.d-w{background:var(--warn)}.d-g{background:var(--good)}
+  .legend{display:flex;flex-wrap:wrap;align-items:center;gap:9px 20px;margin-top:12px;padding:13px 17px;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);font-size:14.5px;color:var(--soft);}
+  .legend .lg-title{font-weight:700;color:var(--ink);}
+  .legend .lg-item{display:inline-flex;align-items:center;gap:8px;}
 
   /* finding card */
   .f{background:var(--panel);border:1px solid var(--line);border-left-width:5px;border-radius:15px;
@@ -215,6 +219,12 @@
       <div class="sc"><div class="l">Products online</div><div class="v"><span class="dot d-c"></span>Very few</div></div>
       <div class="sc"><div class="l">Email list</div><div class="v"><span class="dot d-c"></span>Not set up</div></div>
       <div class="sc"><div class="l">Look &amp; feel</div><div class="v"><span class="dot d-w"></span>Good</div></div>
+    </div>
+    <div class="legend rv">
+      <span class="lg-title">What the colors mean:</span>
+      <span class="lg-item"><span class="dot d-c"></span>Needs fixing, worth handling soon</span>
+      <span class="lg-item"><span class="dot d-w"></span>Worth improving, not urgent</span>
+      <span class="lg-item"><span class="dot d-g"></span>Already good, or a real opportunity</span>
     </div>
   </div>
 </section>
