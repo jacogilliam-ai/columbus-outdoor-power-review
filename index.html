@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Review — Columbus Outdoor Power</title>
+<meta name="description" content="A plain-English review of the Columbus Outdoor Power website: what's working, what's quietly costing calls, and what to fix first.">
+<!-- Social share preview (update the URL below to your live GitHub Pages address after publishing) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Website Review — Columbus Outdoor Power">
+<meta property="og:description" content="A plain-English look at what's working, what's costing you calls, and what to fix first.">
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f2ec; --panel:#fffdfa; --ink:#1e1b17; --soft:#4d473e; --muted:#8a8073;
+    --line:#e6ded2; --line2:#d5cabb;
+    --orange:#e0651c; --orange-ink:#b44f10; --orange-deep:#933f0b; --wash:#fbe9dc;
+    --crit:#c22d2d; --crit-w:#fae7e4; --crit-l:#ecc2bd;
+    --warn:#a06a08; --warn-w:#f8efd6; --warn-l:#e7d4a1;
+    --good:#2c7a4c; --good-w:#e2f0e6; --good-l:#bad8c4;
+    --ink-panel:#211d18;
+    --maxw:920px;
+    --shadow:0 1px 2px rgba(30,27,23,.04), 0 10px 30px rgba(30,27,23,.06);
+    --shadow-lg:0 2px 6px rgba(30,27,23,.05), 0 24px 60px rgba(30,27,23,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Figtree",-apple-system,system-ui,Segoe UI,Roboto,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  h1,h2,h3,h4{font-family:"Archivo",sans-serif;margin:0;line-height:1.08;text-wrap:balance;letter-spacing:-.02em;}
+  p{margin:0;}
+  a{color:var(--orange-ink);text-decoration:none;}
+  code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:var(--wash);
+    color:var(--orange-deep);padding:1px 6px;border-radius:5px;font-size:.86em;font-weight:600;}
+  b,strong{font-weight:700;}
+  .term{font-weight:700;color:var(--ink);}
+
+  /* progress bar */
+  #bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--orange);z-index:50;transition:width .1s linear;}
+
+  /* top brand strip */
+  .topbar{position:fixed;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 20px;background:rgba(246,242,236,.82);backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line);z-index:40;}
+  .topbar .bn{font-family:"Archivo";font-weight:800;font-size:14px;letter-spacing:.01em;}
+  .topbar .bn span{color:var(--orange-ink);}
+  .topbar .by{font-size:12px;color:var(--muted);font-weight:600;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  /* HERO */
+  .hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:110px 0 70px;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(120% 80% at 88% -10%, rgba(224,101,28,.14), transparent 60%),
+      repeating-linear-gradient(135deg, rgba(30,27,23,.018) 0 2px, transparent 2px 26px);}
+  .hero .wrap{position:relative;z-index:1;}
+  .kick{display:inline-flex;align-items:center;gap:9px;font-family:"Archivo";font-weight:700;font-size:12.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--orange-ink);}
+  .kick::before{content:"";width:26px;height:2px;background:var(--orange);}
+  h1{font-size:clamp(40px,8vw,76px);font-weight:900;margin:20px 0 0;letter-spacing:-.035em;}
+  h1 .l2{display:block;color:var(--orange);}
+  .hero .sub{font-size:clamp(18px,2.4vw,22px);color:var(--soft);max-width:34ch;margin:26px 0 0;line-height:1.5;}
+  .hero .meta{margin-top:34px;display:flex;gap:9px 20px;flex-wrap:wrap;font-size:14px;color:var(--muted);font-weight:600;
+    padding-top:22px;border-top:1px solid var(--line2);max-width:560px;}
+  .hero .meta b{color:var(--soft);}
+  .scrollcue{margin-top:52px;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px;}
+  .scrollcue .a{animation:bob 1.8s ease-in-out infinite;font-size:16px;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+  @media (prefers-reduced-motion:reduce){.scrollcue .a{animation:none}}
+
+  /* intro note */
+  .note{background:var(--ink-panel);color:#f3ede4;border-radius:18px;padding:34px 34px 30px;box-shadow:var(--shadow-lg);
+    position:relative;overflow:hidden;}
+  .note::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--orange);}
+  .note p{font-size:17.5px;line-height:1.66;color:#e7dfd3;margin-bottom:15px;}
+  .note p:last-of-type{margin-bottom:0;}
+  .note .sig{font-family:"Archivo";font-weight:800;color:#fff;font-size:16px;margin-top:6px;}
+  .note .warm{color:#f6b98a;font-weight:700;}
+
+  /* section scaffolding */
+  section.blk{padding:64px 0 8px;}
+  .eyebrow{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;}
+  .eyebrow .n{font-family:"Archivo";font-weight:800;color:var(--orange);font-size:15px;font-variant-numeric:tabular-nums;}
+  .eyebrow h2{font-size:clamp(26px,4.4vw,38px);font-weight:800;}
+  .lede{font-size:18px;color:var(--soft);max-width:60ch;margin:0 0 26px;line-height:1.55;}
+
+  /* scorecard */
+  .cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  @media(max-width:720px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
+  .sc{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px 15px;box-shadow:var(--shadow);}
+  .sc .l{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  .sc .v{display:flex;align-items:center;gap:7px;margin-top:8px;font-weight:700;font-size:16px;font-family:"Archivo";}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .d-c{background:var(--crit)}.d-w{background:var(--warn)}.d-g{background:var(--good)}
+
+  /* finding card */
+  .f{background:var(--panel);border:1px solid var(--line);border-left-width:5px;border-radius:15px;
+    padding:22px 24px;margin-bottom:15px;box-shadow:var(--shadow);}
+  .f.c{border-left-color:var(--crit)}.f.w{border-left-color:var(--warn)}.f.g{border-left-color:var(--good)}
+  .f h3{font-size:20px;font-weight:800;display:flex;gap:11px;align-items:baseline;flex-wrap:wrap;letter-spacing:-.01em;}
+  .chip{font-family:"Archivo";font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+    padding:4px 9px;border-radius:30px;white-space:nowrap;}
+  .ch-c{background:var(--crit-w);color:var(--crit);border:1px solid var(--crit-l)}
+  .ch-w{background:var(--warn-w);color:var(--warn);border:1px solid var(--warn-l)}
+  .ch-g{background:var(--good-w);color:var(--good);border:1px solid var(--good-l)}
+  .f p{margin-top:11px;color:var(--soft);font-size:16.5px;}
+  .callout{margin-top:13px;background:#f4efe7;border-radius:10px;padding:12px 15px;font-size:15px;color:var(--soft);}
+  .callout b{color:var(--ink);}
+  .fix{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line2);font-size:15.5px;color:var(--soft);}
+  .fix b{color:var(--orange-ink);}
+  ul.pts{margin:12px 0 0;padding-left:20px;color:var(--soft);font-size:16px;}
+  ul.pts li{margin:6px 0;}
+
+  /* keep box */
+  .keep{background:var(--good-w);border:1px solid var(--good-l);border-radius:15px;padding:22px 26px;box-shadow:var(--shadow);}
+  .keep h3{color:var(--good);font-size:19px;font-weight:800;margin-bottom:10px;}
+  .keep ul{margin:0;padding-left:20px;color:var(--soft);font-size:16px;}
+  .keep li{margin:6px 0;}
+
+  /* option compare */
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  @media(max-width:720px){.opts{grid-template-columns:1fr;}}
+  .opt{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow);}
+  .opt.hi{border-color:var(--good-l);background:var(--good-w);}
+  .opt .tl{font-family:"Archivo";font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+  .opt h4{font-size:18px;font-weight:800;margin-bottom:8px;}
+  .opt p{color:var(--soft);font-size:15.5px;}
+
+  /* roadmap */
+  ol.road{list-style:none;counter-reset:r;padding:0;margin:6px 0 0;}
+  ol.road li{counter-increment:r;position:relative;background:var(--panel);border:1px solid var(--line);border-radius:13px;
+    padding:18px 22px 18px 66px;margin-bottom:11px;box-shadow:var(--shadow);}
+  ol.road li::before{content:counter(r);position:absolute;left:16px;top:16px;width:36px;height:36px;border-radius:10px;
+    background:var(--orange);color:#fff;font-family:"Archivo";font-weight:800;font-size:18px;
+    display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;}
+  ol.road b{font-size:17px;font-weight:700;font-family:"Figtree";}
+  ol.road .m{margin-top:4px;font-size:13.5px;color:var(--muted);font-weight:600;}
+  ol.road .m b{color:var(--soft);font-weight:700;font-size:13.5px;}
+
+  /* closing */
+  .close{background:var(--ink-panel);color:#f2ece3;border-radius:20px;padding:40px 38px;box-shadow:var(--shadow-lg);text-align:left;position:relative;overflow:hidden;}
+  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 120% at 100% 0,rgba(224,101,28,.22),transparent 55%);}
+  .close .inr{position:relative;z-index:1;}
+  .close h2{color:#fff;font-size:clamp(26px,4vw,36px);font-weight:900;margin-bottom:16px;}
+  .close p{color:#e6ded2;font-size:18px;line-height:1.6;margin-bottom:14px;max-width:60ch;}
+  .close .sig{font-family:"Archivo";font-weight:800;color:#f6b98a;font-size:17px;margin-top:4px;}
+
+  footer{padding:34px 0 60px;color:var(--muted);font-size:13px;text-align:center;line-height:1.6;}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+  .rv.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.rv{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+<div id="bar"></div>
+<div class="topbar">
+  <div class="bn">Columbus Outdoor Power <span>· Website Review</span></div>
+  <div class="by">by Jacob Gilliam</div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="kick">Website Review</span>
+    <h1>A close look at your<span class="l2">website.</span></h1>
+    <p class="sub">What's working, what's quietly costing you calls, and the handful of things worth fixing first.</p>
+    <div class="meta">
+      <span><b>Site:</b> columbusoutdoorpower.com</span>
+      <span><b>Reviewed:</b> July 16, 2026</span>
+      <span><b>On:</b> desktop &amp; phone</span>
+    </div>
+    <div class="scrollcue"><span class="a">↓</span> Scroll to read</div>
+  </div>
+</header>
+
+<!-- INTRO NOTE -->
+<section class="blk" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="note rv">
+      <p>Hey — I spent some real time going through your website, front to back, on a computer and on my phone. First thing to say: the look is genuinely good, and it's built on solid, professional software. You're not starting from a bad place.</p>
+      <p>But whoever set it up stopped partway through. A lot of it was never finished, and a few small things are quietly costing you calls right now without anyone noticing. I wrote all of this in plain language, <span class="warm">no tech-speak</span>, so you can see exactly what's going on and why each piece matters. Most of it is quick to fix.</p>
+      <p class="sig">— Jacob</p>
+    </div>
+  </div>
+</section>
+
+<!-- SNAPSHOT -->
+<section class="blk">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="n">01</span><h2>The short version</h2></div>
+    <p class="lede rv">A quick read on where things stand before the details.</p>
+    <div class="cards-grid rv">
+      <div class="sc"><div class="l">Foundation</div><div class="v"><span class="dot d-g"></span>Solid</div></div>
+      <div class="sc"><div class="l">Works on phone</div><div class="v"><span class="dot d-g"></span>Yes</div></div>
+      <div class="sc"><div class="l">Found on Google</div><div class="v"><span class="dot d-c"></span>Weak</div></div>
+      <div class="sc"><div class="l">Visitor tracking</div><div class="v"><span class="dot d-c"></span>None</div></div>
+      <div class="sc"><div class="l">Phone links</div><div class="v"><span class="dot d-w"></span>Miscoded</div></div>
+      <div class="sc"><div class="l">Products online</div><div class="v"><span class="dot d-c"></span>Very few</div></div>
+      <div class="sc"><div class="l">Email list</div><div class="v"><span class="dot d-c"></span>Not set up</div></div>
+      <div class="sc"><div class="l">Look &amp; feel</div><div class="v"><span class="dot d-w"></span>Good</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIX FIRST -->
+<section class="blk">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="n">02</span><h2>Fix these first</h2></div>
+    <p class="lede rv">These either lose customers outright or make the shop look unfinished. None of them take long.</p>
+
+    <div class="f w rv">
+      <h3>The footer phone number dials the wrong number <span class="chip ch-w">Losing calls</span></h3>
+      <p>The phone number down in the footer <span class="term">shows</span> the right number (812-376-7200), but the link hidden behind it is set to a fake placeholder number the website template came with. So it looks correct, but tapping it calls a dead number.</p>
+      <div class="callout"><b>Easy way to check it yourself:</b> on your phone, press and hold the phone number in the footer. The little preview that pops up will show a "123-456-7890" number, not yours. The number at the very top of the page works, but only because phones are smart enough to guess it, not because the site is set up right.</div>
+      <div class="fix"><b>The fix:</b> Point every phone number on the site at the real one so it dials the shop every time, top and bottom of the page.</div>
+    </div>
+
+    <div class="f c rv">
+      <h3>Clicking the logo doesn't take people home <span class="chip ch-c">Navigation</span></h3>
+      <p>On every page, the logo up top is linked to the page you're already on instead of the homepage. So if someone's deep in a product page and clicks the logo to get back to the start, it just reloads the same page. People expect a logo to take them home, and when it doesn't, they feel stuck and leave.</p>
+      <div class="fix"><b>The fix:</b> Set the logo to link back to the homepage across the whole site. Five-minute change.</div>
+    </div>
+
+    <div class="f c rv">
+      <h3>Nothing is counting who visits your site <span class="chip ch-c">No data</span></h3>
+      <p>There's no visitor tracking on the site at all. That means there's no way to know how many people come by, what they click on, whether anyone uses the contact form, or what they typed into Google to find you.</p>
+      <div class="callout"><b>Why it matters:</b> without this, every decision about the site is a guess. With it, you can see what's actually working and put your effort where it pays off.</div>
+      <div class="fix"><b>The fix:</b> Turn on Google Analytics and Google Search Console. Both are free and take about 20 minutes. Search Console alone will show you the exact searches bringing people to your site.</div>
+    </div>
+
+    <div class="f c rv">
+      <h3>Google is writing your search listing for you <span class="chip ch-c">Google</span></h3>
+      <p>When your shop shows up in a Google search, there's a headline and a short gray summary line under it. Right now yours are blank or generic, so Google grabs whatever text it wants to fill them in. You're letting Google decide how you get pitched instead of writing it yourself.</p>
+      <div class="callout"><b>Good news:</b> the tool that controls this is already installed and paid for. Nobody ever filled in the boxes. This is filling in blanks, not building anything new.</div>
+      <div class="fix"><b>The fix:</b> Write a real headline and summary for each page. For the homepage, something like: "Outdoor Power Equipment, Parts &amp; Small Engine Repair — Columbus, IN."</div>
+    </div>
+
+    <div class="f c rv">
+      <h3>Texting your website shows a map pin, not your logo <span class="chip ch-c">First impression</span></h3>
+      <p>Send your website link to someone in a text. Instead of your logo or a photo of the shop, it pops up as a plain gray location pin. That's the very first thing a new customer sees, before they even open the site, and it reads as unfinished. It happens because the site was never given a proper preview image, so it falls back to a generic pin.</p>
+      <div class="fix"><b>The fix:</b> Set a preview image, your logo or a clean storefront photo, so every link you share shows the business instead of a blank pin.</div>
+    </div>
+
+    <div class="f w rv">
+      <h3>Two reviews name a company customers won't recognize <span class="chip ch-w">Trust</span></h3>
+      <p>Two of the three customer reviews on the homepage mention "Grass Luvers." If that's the shop's old name, those reviews are real and worth keeping, but a new customer who only knows "Columbus Outdoor Power" hits a name they've never heard of halfway through, and it reads like it was copied from somewhere else.</p>
+      <div class="fix"><b>The fix:</b> Either update the reviews to say Columbus Outdoor Power, or add a small "formerly Grass Luvers" line so the name connects. With 56 Google reviews, there are plenty of fresh ones to pull from.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE -->
+<section class="blk">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="n">03</span><h2>Getting found on Google</h2></div>
+    <p class="lede rv">For a local shop, showing up when someone searches "lawn mower repair near me" or "Scag dealer Columbus" matters more than anything else here. This is where the biggest untapped growth is.</p>
+
+    <div class="f c rv">
+      <h3>Google can't see your address, hours, or star rating <span class="chip ch-c">Local search</span></h3>
+      <p>Behind the scenes, there's a spot where the website hands Google the basic facts about your business, name, address, phone, hours, star rating. Right now yours is nearly empty. That's the main reason your 4.3 stars from 56 reviews never show up as gold stars next to your name in search results: Google simply can't find them.</p>
+      <div class="fix"><b>The fix:</b> Fill in the business details and your rating so Google can show your stars. This is one of the highest-payoff things on the whole list.</div>
+    </div>
+
+    <div class="f w rv">
+      <h3>Make sure your Google Business Profile is fully built out <span class="chip ch-w">Off the website</span></h3>
+      <p>This is the map listing that shows up above the regular Google results. For a shop like yours, it drives more phone calls than the website itself. It's separate from the site, but worth 20 minutes.</p>
+      <ul class="pts">
+        <li>Confirm it's claimed, with current hours and 15 to 20 real photos</li>
+        <li>Reply to every review, good and bad, so it looks active</li>
+        <li>Ask every happy customer to leave one. More recent reviews push you higher</li>
+      </ul>
+    </div>
+
+    <div class="f w rv">
+      <h3>Build a page for each brand you carry <span class="chip ch-w">Content</span></h3>
+      <p>People search by brand, "Husqvarna dealer near me," "Echo dealer Columbus." Right now the site only has one brand set up (Scag), so you show up for none of the others even though you sell them.</p>
+      <div class="fix"><b>The fix:</b> A simple page for each brand you carry, listing what you stock and that you service it.</div>
+    </div>
+
+    <div class="f w rv">
+      <h3>The blog is empty except a leftover test post <span class="chip ch-w">Content</span></h3>
+      <p>A blog was set up, but the only post on it is the default "Hello world!" placeholder from years ago. An empty blog tells Google the site is abandoned. Meanwhile, simple posts like "When to sharpen your mower blades" are exactly the kind of thing that pulls in local searches.</p>
+      <div class="fix"><b>The fix:</b> Delete the test post. Either commit to a few genuinely useful seasonal posts a year, or hide the blog. Half-built looks worse than not having one at all.</div>
+    </div>
+
+    <div class="f w rv">
+      <h3>Clean up leftover template pages <span class="chip ch-w">Housekeeping</span></h3>
+      <p>A few pages with template-demo names are still published and visible to Google. They look like leftover scaffolding from the theme rather than real pages.</p>
+      <div class="fix"><b>The fix:</b> Delete them or hide them from search so the site stays clean.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="blk">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="n">04</span><h2>Your products &amp; selling online</h2></div>
+    <p class="lede rv">The website shows only a tiny slice of what you actually sell. There's a real opportunity to fix that.</p>
+
+    <div class="f c rv">
+      <h3>Your whole online catalog is 12 Scag mowers <span class="chip ch-c">Big gap</span></h3>
+      <p>That's it. Twelve big Scag zero-turns (priced, with a "Call to Order" button), one category, one brand. None of the things you move every day, oils, filters, blades, trimmer line, chainsaw bars, replacement parts, are on the site at all. Neither are your other brands. Someone landing on your site would think you sell a dozen products.</p>
+      <div class="fix"><b>The fix:</b> Get the real range online. Even if the small parts aren't for sale online (more on that below), just having them listed and searchable makes you look like the full-line dealer you are, and every one is another way to get found on Google.</div>
+    </div>
+
+    <div class="f w rv">
+      <h3>Organize it so people can actually browse <span class="chip ch-w">Structure</span></h3>
+      <p>Right now it's one flat list. With your number of items, you want real sections so a customer (and Google) can find things:</p>
+      <ul class="pts">
+        <li><b>By equipment type</b> — mowers, trimmers, chainsaws, blowers, snow, generators</li>
+        <li><b>By brand</b> — let people filter to Husqvarna, Scag, Echo, and so on</li>
+        <li><b>Parts &amp; supplies</b> — oils, filters, blades, belts, trimmer line, grouped together</li>
+        <li>A working <b>search box</b>, and a price or a clear "call for pricing" on every item</li>
+      </ul>
+    </div>
+
+    <div class="f w rv">
+      <h3>Add a short form next to the call button <span class="chip ch-w">Capturing leads</span></h3>
+      <p>Right now each product's only button is "Call to Order," and it just drops people on your general contact page. The bigger issue: most people browsing at night or on a lunch break won't call. If a phone call is the only option, they leave and you never hear from them.</p>
+      <div class="callout"><b>Why a form matters:</b> a short form ("name, email, which machine you're interested in") captures that person so <b>you</b> can follow up on your own time, and you keep their email. A phone call gives you one conversation; a saved email lets you reach back out. Keep the call button for the ready-to-buy folks, and add the form for everyone else.</div>
+      <div class="fix"><b>The fix:</b> Put a working call button <b>and</b> a short "request info" form on every product page.</div>
+    </div>
+
+    <div class="f g rv">
+      <h3>Should you move to Shopify to sell the small stuff? <span class="chip ch-g">Straight answer</span></h3>
+      <p>Honest take: not yet, and maybe not at all. Your site already has a built-in store system you can turn on right now, without paying for or moving to anything new. Shopify is genuinely nicer for high-volume online selling, but switching means either rebuilding the whole site on it or running two systems at once. That's real cost and hassle to solve a problem you haven't proven you have yet.</p>
+      <div class="opts">
+        <div class="opt hi">
+          <div class="tl">Start here</div>
+          <h4>Use what you already have</h4>
+          <p>Fill out the full catalog on your current store system. Turn on real checkout for a small set of easy-to-ship, in-demand items (oils, common blades, filters). Let the big equipment stay call-to-order and local pickup. See if online orders actually come in.</p>
+        </div>
+        <div class="opt">
+          <div class="tl">Later, if it earns it</div>
+          <h4>Move to Shopify</h4>
+          <p>If online parts sales turn into a real, growing channel, with steady orders, shipping to manage, and inventory to keep in sync, Shopify is easier to run day to day. Revisit it then, as a deliberate upgrade, not a starting point.</p>
+        </div>
+      </div>
+      <div class="fix"><b>My recommendation:</b> prove the demand on the store you already own before adding a new platform. Don't buy the bigger tool before you need it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL / MARKETING -->
+<section class="blk">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="n">05</span><h2>Turning contacts into customers</h2></div>
+    <p class="lede rv">You're collecting contact info but not doing anything with it yet. This is money left on the table.</p>
+
+    <div class="f w rv">
+      <h3>Where do your form messages actually land? <span class="chip ch-w">Worth checking</span></h3>
+      <p>First thing to confirm: when someone fills out your contact form, where does that message go? Make sure it's landing in an inbox you check every day, not a spam folder or an old email address the developer plugged in and forgot about.</p>
+      <div class="fix"><b>The fix:</b> Fill out your own form as a test and confirm the message actually arrives where you'll see it. Simple, but easy to overlook, and a broken form silently swallows every lead.</div>
+    </div>
+
+    <div class="f c rv">
+      <h3>You can collect emails, but you can't market to them yet <span class="chip ch-c">Missed revenue</span></h3>
+      <p>Right now your form only asks for a name, phone, email, and message. It's built to answer one question, not to build a customer list. Two pieces are missing: a checkbox where people agree to hear from you, and an email tool to store and send to them.</p>
+      <div class="callout"><b>Why it matters:</b> without that checkbox, you're not supposed to email those contacts marketing later, even for a sale or an event. Most email tools won't let you, and blasting people who only asked a service question is a fast way to land in the spam folder. So today, when you run a big event or a seasonal sale, you have no way to reach the people who already raised their hand.</div>
+      <div class="fix"><b>The fix:</b> Add a simple opt-in checkbox ("Send me deals, events, and seasonal reminders") and connect a free email tool like Mailchimp. Then every person who contacts you can become someone you're allowed to email, for a sale, an event, or a "time to winterize" reminder. For a local shop, that list is one of the most valuable things you can build.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOOK & FEEL -->
+<section class="blk">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="n">06</span><h2>Look &amp; feel</h2></div>
+    <p class="lede rv">The design is one of the stronger parts. These are small refinements that turn browsers into calls. Checked on both desktop and phone.</p>
+
+    <div class="f w rv">
+      <h3>The top of the homepage has no button to click <span class="chip ch-w">Getting calls</span></h3>
+      <p>The first thing people see, "Outdoor Power Equipment You Can Rely On," has a headline and a paragraph but nothing to press. That first screen should point people toward one clear next step.</p>
+      <div class="fix"><b>The fix:</b> Add one button up top, "Shop Equipment," "Call the Shop," or "Get Directions." Pick the single most important one.</div>
+    </div>
+
+    <div class="f w rv">
+      <h3>The "Contact Us Today" text doesn't look clickable <span class="chip ch-w">Getting calls</span></h3>
+      <p>At the bottom, your main contact prompt shows up as plain text instead of a button, so it blends in and gets missed. The most important action on the page shouldn't be the easiest to overlook.</p>
+      <div class="fix"><b>The fix:</b> Make it a solid orange button, matching the "More About Us" button you already have.</div>
+    </div>
+
+    <div class="f w rv">
+      <h3>Form labels disappear as soon as people type <span class="chip ch-w">Ease of use</span></h3>
+      <p>The contact form's field names (Name, Phone, Email, Message) only show as faint gray text inside each box and vanish the moment someone starts typing, so it's easy to lose your place, especially for older customers.</p>
+      <div class="fix"><b>The fix:</b> Put a label above each box, use the right keyboard on phones, and show a clear "Thanks, we got your message" after someone sends it.</div>
+    </div>
+
+    <div class="keep rv">
+      <h3>What's genuinely good — leave it alone</h3>
+      <ul>
+        <li>Clean, consistent orange-and-black branding that suits the industry</li>
+        <li>Real photos of your showroom and equipment, not generic stock images</li>
+        <li>The "Our Services" and "Built on Reliable Service" sections are strong</li>
+        <li>It works properly on a phone, nothing broken in the mobile layout</li>
+        <li>Solid, professional software underneath, with the right tools already installed</li>
+        <li>Google map and clear hours and address in the footer</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SPEED -->
+<section class="blk">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="n">07</span><h2>Speed</h2></div>
+    <p class="lede rv">Not broken, just heavier than it needs to be, which slows the page and can nudge you down in Google.</p>
+    <div class="f w rv">
+      <h3>The page loads a lot of extra weight <span class="chip ch-w">Performance</span></h3>
+      <p>The site is built with a drag-and-drop page builder that loads a big pile of files every time a page opens. It's a common trade-off, easy to edit, but heavier to load. Some basic tuning would make it noticeably snappier.</p>
+      <div class="fix"><b>The fix:</b> Add a speed plugin, convert the photos to a lighter format, and run the site through Google's free "PageSpeed Insights" tool for a specific to-do list.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="blk">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="n">08</span><h2>Where I'd start</h2></div>
+    <p class="lede rv">In order. The top few are same-day fixes with the biggest payoff for the least work.</p>
+    <ol class="road rv">
+      <li><b>Fix the footer phone link and make every number tap-to-call</b><div class="m"><b>Effort:</b> tiny &nbsp;·&nbsp; <b>Payoff:</b> medium-high</div></li>
+      <li><b>Point the logo back to the homepage</b><div class="m"><b>Effort:</b> tiny &nbsp;·&nbsp; <b>Payoff:</b> medium</div></li>
+      <li><b>Turn on visitor tracking (Google Analytics + Search Console)</b><div class="m"><b>Effort:</b> low &nbsp;·&nbsp; <b>Payoff:</b> high</div></li>
+      <li><b>Fill in the Google listings and set a proper share image</b><div class="m"><b>Effort:</b> low &nbsp;·&nbsp; <b>Payoff:</b> high</div></li>
+      <li><b>Add your business details so Google shows your star rating</b><div class="m"><b>Effort:</b> medium &nbsp;·&nbsp; <b>Payoff:</b> high</div></li>
+      <li><b>Fill out the real product range and add "request info" forms</b><div class="m"><b>Effort:</b> medium &nbsp;·&nbsp; <b>Payoff:</b> high</div></li>
+      <li><b>Add an email opt-in and connect a free email tool</b><div class="m"><b>Effort:</b> low &nbsp;·&nbsp; <b>Payoff:</b> high, long-term</div></li>
+      <li><b>Sort the reviews, add a hero button, brand pages, and speed tuning</b><div class="m"><b>Effort:</b> ongoing &nbsp;·&nbsp; <b>Payoff:</b> steady growth</div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="blk" style="padding-bottom:20px;">
+  <div class="wrap">
+    <div class="close rv">
+      <div class="inr">
+        <h2>None of this means the site was a waste.</h2>
+        <p>The bones are good, and most of this is just finishing what was started. Taken together, though, these fixes are the difference between a website that looks nice and one that actually brings you calls, customers, and a list you can grow.</p>
+        <p>If you want a hand knocking any of it out, I'm glad to help, just tell me which parts you'd want to tackle first and we'll go from there.</p>
+        <p class="sig">— Jacob</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Independent website review, prepared July 16, 2026.<br>
+  Findings checked against the live website's code, sitemap, and settings, plus a page-by-page look on desktop and phone.
+</footer>
+
+<script>
+  // scroll progress
+  var bar=document.getElementById('bar');
+  function onScroll(){
+    var h=document.documentElement, b=document.body;
+    var st=h.scrollTop||b.scrollTop;
+    var sh=(h.scrollHeight||b.scrollHeight)-h.clientHeight;
+    bar.style.width=(sh>0?(st/sh*100):0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // reveal on scroll
+  var rvs=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    rvs.forEach(function(el){io.observe(el);});
+  } else {
+    rvs.forEach(function(el){el.classList.add('in');});
+  }
+</script>
+</body>
+</html>
